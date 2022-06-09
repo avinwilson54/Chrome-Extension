@@ -2,9 +2,11 @@ body {
     margin: 0;
     padding: 10px;
     font: Arial, Helvetica, sans-serif;
+    min-width: 400px ;
 }
 
 input {
+    font-size: 20px;
     width: 100%;
     padding: 10px;
     border: solid 1px #5f9341;
@@ -13,7 +15,6 @@ input {
 }
 
 input:focus {
-    font-size: 20px;
     width: 100%;
     border: solid 2px #5f9341;
     border-radius: 2px;
@@ -28,4 +29,18 @@ button {
     font-weight: bold;
     font-size: 20px;
     color: white;
+}
+
+ul {
+    margin: 20px 0 ;
+    list-style: none ;
+    padding-left: 0;
+}
+
+li {
+    margin-top: 5px;
+}
+
+li a {
+    color: #5f9341;
 }
