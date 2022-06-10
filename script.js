@@ -2,23 +2,29 @@ let myLeads = [] ;
 const inputEl = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-log") ;
 const ulEl = document.getElementById("ul-el") ;
+const deleteBtn = document.getElementById("delete-btn") ;
 
-// localStorage.clear() ; if used it clears out the data stored
 let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads")) ;
 console.log(leadsFromLocalStorage)
 
 if (leadsFromLocalStorage)  {
-    myLeads = leadsFromLocalStorage ;
-    renderLeads() ;
+     myLeads = leadsFromLocalStorage ;
+     renderLeads() ;
 }
+// console.log(Boolean(leadsFromLocalStorage)) ; to check whether the function is truthy or falsy value or using !! instead of boolean
 
-inputBtn.addEventListener('click', () => { //Arrow function 
+deleteBtn.addEventListener('dblclick', function() {
+    localStorage.clear() ;
+    myLeads = [] ;
+    renderLeads() ;
+}) ;
+
+inputBtn.addEventListener('click', () => {
     myLeads.push(inputEl.value) ;
     inputEl.value = "" ;
     localStorage.setItem("myLeads", JSON.stringify(myLeads)) ;
     renderLeads() ;
-    // console.log(localStorage.getItem("myLeads")) ;
-}) ; 
+}) ;
 
 function renderLeads() {
     let listItems = "" ;
@@ -37,7 +43,3 @@ function renderLeads() {
     }
     ulEl.innerHTML = listItems ; // used this to improve the performance of the code, using innerHTML funcction we can create HTML elements.
 }
-
-// www.awesomeleds.com
-// www.exampleleads.com
-// www.epicleads.com
